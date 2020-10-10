@@ -91,7 +91,7 @@ h1 {
 }
 
 #current-temp::after {
-  content: "ºf";
+  content: "º";
   font-size: 30px;
   vertical-align: top;
 }

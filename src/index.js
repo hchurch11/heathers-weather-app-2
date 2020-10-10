@@ -43,16 +43,18 @@ formatDate(); //Function to show current time and date END
 function formatHours(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
+
+  if (hours > 12) {
+    hours = hours - 12;
+  } else if (hours === 0) {
+    hours = 12;
   }
 
   let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-
-  return `${hours}:${minutes}`;
+  return date.toLocaleString(`en-US`, { hour: `numeric`, hour12: true });
 }
 
 function displayForecast(response) {
@@ -75,12 +77,13 @@ function displayForecast(response) {
         </div>`;
   }
 }
+
 function displayWeather(response) {
   let currentCity = document.querySelector("#city");
   currentCity.innerHTML = response.data.name;
 
   let currentTemp = document.querySelector("#current-temp");
-  currentTemp.innerHTML = `${Math.round(response.data.main.temp)}º f`;
+  currentTemp.innerHTML = `${Math.round(response.data.main.temp)}`;
 
   let highLowTemp = document.querySelector("#high-low");
   highLowTemp.innerHTML = `${Math.round(
@@ -150,12 +153,13 @@ findMeButton.addEventListener("click", getGeoPosition);
 /* TEMPERATURE CONVERSIONS - TEMPERATURE CONVERSIONS - TEMPERATURE CONVERSIONS - TEMPERATURE CONVERSIONS -  */
 function convertCelsToFahr(event) {
   event.preventDefault();
-  let tempToday = document.querySelector("#current-temp");
+  let currentTemp = document.querySelector("#current-temp");
   fahrLink.classList.add("active");
   celsLink.classList.remove("active");
-  let temperature = tempToday.innerHTML;
+
+  let temperature = currentTemp.innerHTML;
   temperature = Number(temperature);
-  tempToday.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  currentTemp.innerHTML = Math.round((temperature * 9) / 5 + 32);
 }
 
 let fahrLink = document.querySelector("#fahrenheit-link");
@@ -163,12 +167,13 @@ fahrLink.addEventListener("click", convertCelsToFahr);
 
 function convertFahrToCels(event) {
   event.preventDefault();
-  let tempToday = document.querySelector("#current-temp");
+  let currentTemp = document.querySelector("#current-temp");
   celsLink.classList.add("active");
   fahrLink.classList.remove("active");
-  let temperature = tempToday.innerHTML;
+
+  let temperature = currentTemp.innerHTML;
   let celsiusTemp = Math.round(((temperature - 32) * 5) / 9);
-  tempToday.innerHTML = celsiusTemp;
+  currentTemp.innerHTML = celsiusTemp;
 }
 
 let celsLink = document.querySelector("#celsius-link");

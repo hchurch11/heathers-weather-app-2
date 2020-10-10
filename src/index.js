@@ -56,7 +56,7 @@ function formatHours(timestamp) {
 }
 
 function displayForecast(response) {
-  let forecastElement = document.querySelector("#forecast");
+  let forecastElement = document.querySelector(".forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
 
@@ -64,11 +64,11 @@ function displayForecast(response) {
     forecast = response.data.list[index];
 
     forecastElement.innerHTML += `
-     <div class="col date">
+     <div class="col futureDate">
           <h4>${formatHours(forecast.dt * 1000)}</h4>
-         <img
+         <img id="weather-icon-future"
     src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" />
-          <h5>SUNNY</h5>
+          <h5>${forecast.weather[0].description}</h5>
           <p>${Math.round(forecast.main.temp_max)} | ${Math.round(
       forecast.main.temp_min
     )}°</p>

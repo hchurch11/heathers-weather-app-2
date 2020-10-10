@@ -67,7 +67,7 @@ h1 {
   padding: 20px 0;
 }
 
-.current-weather {
+.currentWeather {
   padding: 0 0 50px;
   height: 250px;
 }
@@ -133,4 +133,9 @@ h1 {
   to {
     transform: translateX(50%);
   }
+}
+
+#git-hub-link {
+  margin: 0 auto;
+  display: inline-block;
 }

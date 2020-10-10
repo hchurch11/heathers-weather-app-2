@@ -131,8 +131,12 @@ searchForm.addEventListener("submit", handleSubmit);
 function inputGeoPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
+  const apiKey = "a8c8f7d25b7901021cffbfe31b57f387";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`;
   axios.get(apiUrl).then(displayWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function getGeoPosition(event) {

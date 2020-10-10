@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="src/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Major+Mono+Display&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <script src="https://kit.fontawesome.com/46b1054f6e.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div class="weather-app">
+    <!--For the Form-->
+    <div class="container citySearch ">
+      <form class="form-row" id="search-form">
+        <div class="col-4">
+          <input type="text" class="form-control form-control-sm bg" placeholder="Enter City" id="city-input"
+            autofocus="on" />
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-info btn-sm" id="search-button" value="search">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-info btn-sm" id="find-me-button">
+            <i class="fas fa-redo-alt"></i></button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-info btn-sm float-right " id="celsius-link">C</button>
+          <button type="button" class="btn btn-info btn-sm float-right" id="fahrenheit-link">F</button>
+        </div>
+    </div>
+    </form>
+
+    <!--Main weather section-->
+    <div class="container ">
+      <div class="row">
+        <div class="col-4 currentCity">
+          <h1 id="city">city</h1>
+          <h2 id="day-time">time</h2>
+          <p id="date-today">date</p>
+        </div>
+        <div class="col-4" id="weather-state">
+          <h1><img id="weather-icon-today" src=""></h1>
+          <h2 id="sky">cloudy</h2>
+        </div>
+        <div class="col-4" id="temp">
+          <h2 id="high-low"> - º | - º </h2>
+          <h1 id="current-temp"> - º</h1>
+
+        </div>
+      </div>
+    </div>
+    <!--Precipitation, Humidity, Wind-->
+    <div id="current-conditions">
+      <ul>
+        <li class="extra" id="feels-like">feels-like</li>
+        <li class="extra" id="humidity">humidity</li>
+        <li class="extra" id="wind">wind</li>
+      </ul>
+    </div>
+    <!--Forecast-->
+
+
+    <!--bootstrap-->
+    <div class="container ">
+      <div class="row forecast">
+        <div class="col futureDate">
+          <h4>TUE</h4>
+          <i class=" fas fa-sun"></i>
+          <h5>SUNNY</h5>
+          <p>99 | 74</p>
+        </div>
+        <div class="col futureDate">
+          <h4>WED</h4>
+          <i class="fas fa-sun"></i>
+          <h5>SUNNY</h5>
+          <p>99 | 74</p>
+        </div>
+        <div class="col futureDate">
+          <h4>THU</h4>
+          <i class="fas fa-sun"></i>
+          <h5>SUNNY</h5>
+          <p>99 | 74</p>
+        </div>
+        <div class="col futureDate">
+          <h4>FRI</h4>
+          <i class="fas fa-sun"></i>
+          <h5>SUNNY</h5>
+          <p>99 | 74</p>
+        </div>
+        <div class="col futureDate">
+          <h4>SAT</h4>
+          <i class="fas fa-sun"></i>
+          <h5>SUNNY</h5>
+          <p>99 | 74</p>
+        </div>
+      </div>
+    </div>
+    <!--End of forecast-->
+  </div>
+  </div>
+  <script src="./src/index.js"></script>
+</body>
+
+</html>

@@ -108,3 +108,29 @@ h1 {
 .weather-state {
   font-size: 80px;
 }
+
+#weather-icon-today {
+  animation: wiggle2 5s alternate linear infinite both;
+}
+
+#weather-icon-future {
+  animation: wiggle1 5s alternate linear infinite both;
+}
+
+@keyframes wiggle1 {
+  from {
+    transform: translateX(-20%);
+  }
+  to {
+    transform: translateX(20%);
+  }
+}
+
+@keyframes wiggle2 {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}

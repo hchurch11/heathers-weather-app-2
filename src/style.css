@@ -41,6 +41,7 @@ h1 {
 
 .active {
   background-color: #0d424e;
+  pointer-events: none;
 }
 
 .weather-app {
